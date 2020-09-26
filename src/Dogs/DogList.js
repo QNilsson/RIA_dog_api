@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import {List} from '@material-ui/core';
 import axios from 'axios';
 
-
 const useStyles = makeStyles ({
   root: {
     minWidth: 275,
@@ -28,7 +27,7 @@ const useStyles = makeStyles ({
 
 const DogList = () => //functional component
 {
-	const classes=useStyles();
+  const classes = useStyles ();
   const [dogData, setDogData] = useState ({
     dogs: [],
   }); //end state
@@ -52,41 +51,33 @@ const DogList = () => //functional component
     fetchDogs ();
   });
 
-  const names = dogData.dogs.map(function(dog, idx){
-	  return (dog.name)
-  })
+  const names = dogData.dogs.map (function (dog, idx) {
+    return dog.name;
+  });
 
-  const temps = dogData.dogs.map(function(dog, idx){
-	  return (dog.temperament)
-  })
+  const temps = dogData.dogs.map (function (dog, idx) {
+    return dog.temperament;
+  });
   return (
-	  <div>
-    <Card className={classes.root}> 
-      <CardContent>
-		  {names.map(name => (
-			  <Typography className={classes.title}>
-				  {name} 
-				  {temps.map(temp =>(
-					  <Typography className={classes.pos}>
-						  {temp}
-					  </Typography>
-				  ))}
-			  </Typography>
-		  ))}
-        
-         
-        
-        <Typography className={classes.pos} variant="body 2" color="textSecondary" component="p">
-		
-        </Typography>
+    <div>
+      <Card className={classes.root}>
+        <CardContent>
+          {names.map (name => (
+            <Typography className={classes.title}>
+              {name}
+			{temps.map(temp =>(
+				<Typography className={classes.pos}>
+					{temp}
+				</Typography>
+			))}
+            </Typography>
+			
+          ))}
 
-      </CardContent>
-    </Card>
-	<Card variant="outlined" width="300">
-		<CardContent>Hello there</CardContent></Card>
-	</div>
+        </CardContent>
+      </Card>
 
-	
+    </div>
   ); //end return
 };
 export default DogList;
